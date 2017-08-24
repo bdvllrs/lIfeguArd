@@ -1,0 +1,39 @@
+.cards {
+  display: flex;
+  justify-content: $card-justify-content;
+  flex-wrap: wrap;
+
+  .card {
+    width: $card-width;
+    height: $card-height;
+    background-color: $card-background-color;
+    box-shadow: $card-box-shadow;
+    border: $card-border;
+    margin: $card-margin;
+    border-radius: $card-border-radius;
+
+    .card-heading {
+      padding: $card-padding;
+      font-size: $card-heading-font-size;
+      font-weight: $card-heading-font-weight;
+    }
+
+    .card-content {
+      padding: $card-padding;
+    }
+
+    .card-list {
+    }
+
+    .separator {
+      border-bottom: 1px solid $grey;
+      box-shadow: 0 1px 1px 0 $white;
+      display: block;
+      margin: 10px 0;
+    }
+
+    &.large {
+      width: $card-width-large;
+    }
+  }
+}

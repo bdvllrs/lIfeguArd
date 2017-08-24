@@ -1,0 +1,69 @@
+
+// Form
+$form-margin: 20px 0;
+
+// Form Group
+$form-group-margin: 20px 10px;
+$form-group-vertical-align: top;
+
+// Label
+$form-label-width: 200px;
+$form-label-color-error: $error-color;
+$form-label-color-success: $success-dark-color;
+$form-label-color-warning: $warning-dark-color;
+$form-label-color-default: $default-dark-color;
+
+// Default values
+$form-input-width: 200px;
+$form-input-height: 30px;
+$form-input-padding: 5px;
+$form-input-margin: 0;
+$form-input-border-radius: $border-radius;
+$form-input-background-color: $white;
+$form-input-color: $black;
+$form-input-border: 1px solid $light-grey;
+
+// Focus
+$form-input-border-focus: 1px solid $dark-grey;
+$form-input-background-color-focus: $form-input-background-color;
+$form-input-color-focus: $form-input-color;
+
+// Default
+$form-input-background-color-default: $default-lighter-color;
+$form-input-color-default: $default-darker-color;
+$form-input-border-default: 1px solid $default-color;
+$form-input-border-default-focus: 1px solid $default-darker-color;
+$form-input-background-color-default-focus: $form-input-background-color-default;
+$form-input-color-default-focus: $form-input-color-default;
+
+// Warning
+$form-input-background-color-warning: $warning-lighter-color;
+$form-input-color-warning: $warning-darker-color;
+$form-input-border-warning: 1px solid $warning-color;
+$form-input-border-warning-focus: 1px solid $warning-darker-color;
+$form-input-background-color-warning-focus: $form-input-background-color-warning;
+$form-input-color-warning-focus: $form-input-color-warning;
+
+// Error
+$form-input-background-color-error: $error-lighter-color;
+$form-input-color-error: $white;
+$form-input-border-error: 1px solid $error-color;
+$form-input-border-error-focus: 1px solid $error-darker-color;
+$form-input-background-color-error-focus: $form-input-background-color-error;
+$form-input-color-error-focus: $form-input-color-error;
+
+// Success
+$form-input-background-color-success: $success-light-color;
+$form-input-color-success: $success-darker-color;
+$form-input-border-success: 1px solid $success-color;
+$form-input-border-success-focus: 1px solid $success-dark-color;
+$form-input-background-color-success-focus: $form-input-background-color-success;
+$form-input-color-success-focus: $form-input-color-success;
+
+// Form help
+$form-help-font-size: 12px;
+$form-help-vertical-margin: 2px 0 0 $form-label-width + 10px;
+
+// Select List
+
+$select-list-remove-button-color: $black;

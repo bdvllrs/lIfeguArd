@@ -1,0 +1,87 @@
+
+.dropdown {
+  display: inline-block;
+
+  .dropdown-container {
+    position: relative;
+
+    .dropdown-menu {
+      position: absolute;
+      z-index: 1000;
+      list-style: none;
+      margin: 0 0 0 10px;
+      padding: 3px 0;
+      display: block;
+      background-color: $dropdown-background-color;
+      box-shadow: 0 0 3px $dropdown-shadow-color;
+      border: 1px solid $dropdown-shadow-color;
+
+      li {
+        display: block;
+        width: 100%;
+        line-height: $dropdown-li-line-height;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        a {
+          display: block;
+          box-sizing: border-box;
+          width: 100%;
+          text-decoration: none;
+          color: $darker-grey;
+          padding: 2px $dropdown-margin-li;
+          transition: background $animation-delay;
+
+          &.success {
+            color: $dropdown-li-color-success;
+            background-color: $dropdown-li-background-color-success;
+
+            &:hover {
+              color: $dropdown-li-color-success-hover;
+              background-color: $dropdown-li-background-color-success-hover;
+            }
+          }
+
+          &.default {
+            color: $dropdown-li-color-default;
+            background-color: $dropdown-li-background-color-default;
+
+            &:hover {
+              color: $dropdown-li-color-default-hover;
+              background-color: $dropdown-li-background-color-default-hover;
+            }
+          }
+
+          &.warning {
+            color: $dropdown-li-color-warning;
+            background-color: $dropdown-li-background-color-warning;
+
+            &:hover {
+              color: $dropdown-li-color-warning-hover;
+              background-color: $dropdown-li-background-color-warning-hover;
+            }
+          }
+
+          &.error {
+            color: $dropdown-li-color-error;
+            background-color: $dropdown-li-background-color-error;
+
+            &:hover {
+              color: $dropdown-li-color-error-hover;
+              background-color: $dropdown-li-background-color-error-hover;
+            }
+          }
+
+          &:hover {
+            background-color: $dropdown-background-color-hover;
+            color: $darker-grey;
+          }
+        }
+      }
+    }
+  }
+}
+
+

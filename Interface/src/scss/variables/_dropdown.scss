@@ -1,0 +1,30 @@
+
+$dropdown-background-color: $lighter-grey;
+$dropdown-background-color-hover: $light-grey;
+$dropdown-shadow-color: $grey;
+$dropdown-margin-li: 20px;
+$dropdown-li-line-height: 20px;
+
+// Success
+$dropdown-li-color-success: $success-darker-color;
+$dropdown-li-background-color-success: $success-light-color;
+$dropdown-li-background-color-success-hover: $success-lighter-color;
+$dropdown-li-color-success-hover: $success-darker-color;
+
+// Default
+$dropdown-li-color-default: $white;
+$dropdown-li-background-color-default: $default-color;
+$dropdown-li-background-color-default-hover: $default-light-color;
+$dropdown-li-color-default-hover: $white;
+
+// Warning
+$dropdown-li-color-warning: $white;
+$dropdown-li-background-color-warning: $warning-color;
+$dropdown-li-background-color-warning-hover: $warning-light-color;
+$dropdown-li-color-warning-hover: $white;
+
+// Error
+$dropdown-li-color-error: $white;
+$dropdown-li-background-color-error: $error-light-color;
+$dropdown-li-background-color-error-hover: $error-lighter-color;
+$dropdown-li-color-error-hover: $white;

@@ -1,0 +1,76 @@
+.panel {
+  border: $panel-border;
+  border-radius: $panel-border-radius;
+  box-shadow: $panel-box-shadow;
+
+  .panel-heading {
+    background-color: $panel-heading-background-color;
+    padding: $panel-heading-padding;
+    border-bottom: $panel-heading-border;
+    box-shadow: $panel-heading-box-shadow;
+  }
+
+  .panel-body {
+    padding: $panel-body-padding;
+  }
+
+  &.success {
+    box-shadow: $panel-box-shadow-success;
+    border: $panel-border-success;
+
+    .panel-heading{
+      background-color: $panel-heading-background-color-success;
+      border-bottom: $panel-heading-border;
+      box-shadow: $panel-heading-box-shadow-success;
+      color: $panel-heading-color-success;
+    }
+  }
+
+  &.error {
+    box-shadow: $panel-box-shadow-error;
+    border: $panel-border-error;
+
+    .panel-heading{
+      background-color: $panel-heading-background-color-error;
+      border-bottom: $panel-heading-border;
+      box-shadow: $panel-heading-box-shadow-error;
+      color: $panel-heading-color-error;
+    }
+  }
+
+  &.warning {
+    box-shadow: $panel-box-shadow-warning;
+    border: $panel-border-warning;
+
+    .panel-heading{
+      background-color: $panel-heading-background-color-warning;
+      border-bottom: $panel-heading-border;
+      box-shadow: $panel-heading-box-shadow-warning;
+      color: $panel-heading-color-warning;
+    }
+  }
+
+  &.default {
+    box-shadow: $panel-box-shadow-default;
+    border: $panel-border-default;
+
+    .panel-heading{
+      background-color: $panel-heading-background-color-default;
+      border-bottom: $panel-heading-border;
+      box-shadow: $panel-heading-box-shadow-default;
+      color: $panel-heading-color-default;
+    }
+  }
+
+  &.dark {
+    box-shadow: $panel-box-shadow-dark;
+    border: $panel-border-dark;
+
+    .panel-heading{
+      background-color: $panel-heading-background-color-dark;
+      border-bottom: $panel-heading-border;
+      box-shadow: $panel-heading-box-shadow-dark;
+      color: $panel-heading-color-dark;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+
+// Default Values
+$panel-box-shadow: 0 1px 1px $grey;
+$panel-border: 1px solid $light-grey;
+$panel-border-radius: $border-radius;
+
+// Panel Heading
+$panel-heading-padding: 10px;
+$panel-heading-border: 1px solid $grey;
+$panel-heading-background-color: $lighter-grey;
+$panel-heading-box-shadow: inset 0 1px 1px $white;
+
+// Panel Body
+$panel-body-padding: 10px;
+
+// Success
+$panel-heading-background-color-success: $success-color;
+$panel-heading-color-success: $white;
+$panel-heading-border-success: 1px solid $success-darker-color;
+$panel-heading-box-shadow-success: inset 0px 1px 1px $success-light-color;
+$panel-box-shadow-success: 0 1px 1px $success-darker-color;
+$panel-border-success: 1px solid $success-color;
+// Error
+$panel-heading-background-color-error: $error-color;
+$panel-heading-color-error: $white;
+$panel-heading-border-error: 1px solid $error-darker-color;
+$panel-heading-box-shadow-error: inset 0px 1px 1px $error-light-color;
+$panel-box-shadow-error: 0 1px 1px $error-darker-color;
+$panel-border-error: 1px solid $error-color;
+// Warning
+$panel-heading-background-color-warning: $warning-color;
+$panel-heading-color-warning: $white;
+$panel-heading-border-warning: 1px solid $warning-darker-color;
+$panel-heading-box-shadow-warning: inset 0px 1px 1px $warning-light-color;
+$panel-box-shadow-warning: 0 1px 1px $warning-darker-color;
+$panel-border-warning: 1px solid $warning-color;
+// Default
+$panel-heading-background-color-default: $default-color;
+$panel-heading-color-default: $white;
+$panel-heading-border-default: 1px solid $default-darker-color;
+$panel-heading-box-shadow-default: inset 0px 1px 1px $default-light-color;
+$panel-box-shadow-default: 0 1px 1px $default-darker-color;
+$panel-border-default: 1px solid $default-color;
+
+// Dark
+$panel-heading-background-color-dark: $black;
+$panel-heading-color-dark: $white;
+$panel-heading-border-dark: 1px solid $black;
+$panel-heading-box-shadow-dark: inset 0px 1px 1px $darker-grey;
+$panel-box-shadow-dark: 0 1px 1px $dark-grey;
+$panel-border-dark: 1px solid $black;
+

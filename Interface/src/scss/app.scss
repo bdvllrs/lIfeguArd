@@ -1,0 +1,105 @@
+@import "normalize.css";
+@import "open-iconic";
+
+
+@import "variables/main";
+@import "navbar";
+@import "sidebar";
+@import "dropdown";
+@import "tooltip";
+@import "forms";
+@import "tables";
+@import "buttons";
+@import "panel";
+@import "card";
+@import "message";
+@import "popup";
+
+// Icons
+.oi {
+  margin: 0 5px;
+}
+
+// Wraps and centers the content
+.wrap {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.clearfix {
+  clear: both;
+  display: block;
+}
+
+.container {
+
+  &.grid-container {
+    display: grid;
+
+    // Default XS
+    grid-template-columns: $xs-grid-template-columns;
+    grid-template-rows: $xs-grid-template-rows;
+    grid-template-areas: $xs-grid-template-areas;
+    grid-column-gap: $grid-column-gap;
+    grid-row-gap: $grid-row-gap;
+
+    .navbar {
+      grid-area: $navbar-grid-area;
+    }
+    .content {
+      grid-area: $content-grid-area;
+      padding: 5px;
+
+      a {
+        color: $links-color;
+        text-decoration: underline;
+
+        &:hover {
+          color: $links-color-hover;
+        }
+      }
+    }
+    .sidebar {
+      grid-area: $sidebar-grid-area;
+    }
+    .footer {
+      grid-area: $footer-grid-area;
+    }
+  }
+
+}
+
+@media only screen and (min-width: $wrap-max-size) {
+  .wrap {
+    width: $wrap-max-size !important;
+  }
+}
+
+// S
+@media only screen and (min-width: $xs-breakpoint) and (max-width: $s-breakpoint) {
+  .grid-container {
+    grid-template-columns: $s-grid-template-columns !important;
+    grid-template-rows: $s-grid-template-rows !important;
+    grid-template-areas: $s-grid-template-areas !important;
+  }
+}
+
+// L
+@media only screen and (min-width: $s-breakpoint) and (max-width: $l-breakpoint) {
+
+  .grid-container {
+    grid-template-columns: $l-grid-template-columns !important;
+    grid-template-rows: $l-grid-template-rows !important;
+    grid-template-areas: $l-grid-template-areas !important;
+  }
+}
+
+// XL
+@media only screen and (min-width: $l-breakpoint) {
+  .grid-container {
+    grid-template-columns: $xl-grid-template-columns !important;
+    grid-template-rows: $xl-grid-template-rows !important;
+    grid-template-areas: $xl-grid-template-areas !important;
+  }
+}

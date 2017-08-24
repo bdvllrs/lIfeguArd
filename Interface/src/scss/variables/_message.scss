@@ -1,0 +1,41 @@
+$messages-width: 600px;
+
+
+$message-background-color: $light-grey;
+$message-border: 1px solid $grey;
+$message-border-radius: $border-radius;
+$message-color: $darker-grey;
+$message-box-shadow: 0 1px 1px $dark-grey;
+$message-padding: 2px 10px;
+$message-margin: 5px 0;
+
+$message-loader-background-color: $grey;
+$message-loader-height: 3px;
+
+// Default
+$message-background-color-default: $default-lighter-color;
+$message-color-default: $default-darker-color;
+$message-border-default: 1px solid $default-color;
+$message-box-shadow-default: 0 1px 1px $default-color;
+$message-loader-background-color-default: $default-color;
+
+// Warning
+$message-background-color-warning: $warning-lighter-color;
+$message-color-warning: $warning-darker-color;
+$message-border-warning: 1px solid $warning-color;
+$message-box-shadow-warning: 0 1px 1px $warning-color;
+$message-loader-background-color-warning: $warning-color;
+
+// Success
+$message-background-color-success: $success-light-color;
+$message-color-success: $success-darker-color;
+$message-border-success: 1px solid $success-color;
+$message-box-shadow-success: 0 1px 1px $success-color;
+$message-loader-background-color-success: $success-color;
+
+// Error
+$message-background-color-error: $error-lighter-color;
+$message-color-error: $error-darker-color;
+$message-border-error: 1px solid $error-color;
+$message-box-shadow-error: 0 1px 1px $error-color;
+$message-loader-background-color-error: $error-color;

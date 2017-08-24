@@ -1,0 +1,57 @@
+// Colors
+$button-background-color: $light-grey;
+$button-background-color-active: darken($light-grey, 5);
+$button-border-color: $light-grey;
+$button-border-color-hover: darken($light-grey, 10);
+
+// Default Values
+$button-height: 30px;
+$button-width: auto;
+$button-padding: 5px 10px;
+$button-margin: 0 5px;
+$button-border: 1px solid $button-border-color;
+$button-border-radius: $border-radius;
+
+// Hover
+$button-border-hover: 1px solid $button-border-color-hover;
+$button-box-shadow-hover: 0 0 1px $dropdown-shadow-color;
+
+// Error
+$button-background-color-error: $error-light-color;
+$button-border-error: 1px solid $error-light-color;
+$button-border-error-hover: 1px solid $error-dark-color;
+$button-color-error: $white;
+$button-box-shadow-error-hover: 0 0 1px $error-lighter-color;
+$button-background-color-error-active: $error-color;
+
+// Success
+$button-background-color-success: $success-color;
+$button-border-success: 1px solid $success-color;
+$button-border-success-hover: 1px solid $success-dark-color;
+$button-color-success: $white;
+$button-box-shadow-success-hover: 0 0 1px $success-dark-color;
+$button-background-color-success-active: $success-dark-color;
+
+// Warning
+$button-background-color-warning: $warning-color;
+$button-border-warning: 1px solid $warning-color;
+$button-border-warning-hover: 1px solid $warning-dark-color;
+$button-color-warning: $white;
+$button-box-shadow-warning-hover: 0 0 1px $warning-dark-color;
+$button-background-color-warning-active: $warning-dark-color;
+
+// Dark
+$button-background-color-dark: $black;
+$button-border-dark: 1px solid $black;
+$button-border-dark-hover: 1px solid $darker-grey;
+$button-color-dark: $white;
+$button-box-shadow-dark-hover: 0 0 1px $darker-grey;
+$button-background-color-dark-active: $darker-grey;
+
+// Default
+$button-background-color-default: $default-color;
+$button-border-default: 1px solid $default-color;
+$button-border-default-hover: 1px solid $default-dark-color;
+$button-color-default: $white;
+$button-box-shadow-default-hover: 0 0 1px $default-dark-color;
+$button-background-color-default-active: $default-dark-color;

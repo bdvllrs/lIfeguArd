@@ -1,0 +1,38 @@
+.sidebar {
+  padding: 10px;
+  background-color: $sidebar-background-color;
+  visibility: visible;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 10px;
+      a {
+        color: $default-color;
+        text-decoration: none;
+        margin-left: 10px;
+
+        &:hover {
+          color: $default-light-color;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $xs-breakpoint) {
+  .sidebar {
+    position: fixed;
+    top: $navbar-height;
+    bottom: 0;
+    background-color: $white;
+    visibility: hidden;
+    z-index: 10000;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+}

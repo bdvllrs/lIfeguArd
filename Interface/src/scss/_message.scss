@@ -1,0 +1,93 @@
+.message {
+  position: relative;
+  background-color: $message-background-color;
+  color: $message-color !important;
+  border: $message-border;
+  border-radius: $message-border-radius;
+  box-shadow: $message-box-shadow;
+  margin: $message-margin;
+
+  p {
+    padding: $message-padding;
+  }
+
+  .hide {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    color: $error-dark-color !important;
+    cursor: pointer;
+
+    &:hover {
+      color: $error-darker-color !important;
+    }
+  }
+
+  .loader-container {
+    display: block;
+    height: $message-loader-height;
+    width: 100%;
+
+    .loader {
+      display: block;
+      height: 100%;
+      background-color: $message-loader-background-color;
+      transition: width .1s;
+    }
+  }
+
+  &.default {
+    background-color: $message-background-color-default;
+    color: $message-color-default !important;
+    border: $message-border-default;
+    box-shadow: $message-box-shadow-default;
+    
+    .loader-container .loader {
+      background-color: $message-loader-background-color-default;
+    }
+  }
+
+  &.warning {
+    background-color: $message-background-color-warning;
+    color: $message-color-warning !important;
+    border: $message-border-warning;
+    box-shadow: $message-box-shadow-warning;
+
+    .loader-container .loader {
+      background-color: $message-loader-background-color-warning;
+    }
+  }
+
+  &.success {
+    background-color: $message-background-color-success;
+    color: $message-color-success !important;
+    border: $message-border-success;
+    box-shadow: $message-box-shadow-success;
+
+    .loader-container .loader {
+      background-color: $message-loader-background-color-success;
+    }
+  }
+
+  &.error {
+    background-color: $message-background-color-error;
+    color: $message-color-error !important;
+    border: $message-border-error;
+    box-shadow: $message-box-shadow-error;
+
+    .loader-container .loader {
+      background-color: $message-loader-background-color-error;
+    }
+  }
+}
+
+
+.messages {
+  position: absolute;
+  top: $navbar-height;
+  right: 0;
+  margin-right: 5px;
+  margin-left: 5px;
+  max-width: $messages-width;
+}

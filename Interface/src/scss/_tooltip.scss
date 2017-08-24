@@ -1,0 +1,39 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  .tooltip-body {
+    position: absolute;
+    display: block;
+    width: auto;
+    left: -50%;
+    margin-top: 5px;
+    text-align: center;
+    padding: 3px 10px;
+    border-radius: $tooltib-border-radius;
+    background-color: $tooltip-background-color;
+    color: $tooltip-color;
+
+    &.top {
+     bottom: 23px;
+
+      &:after {
+        content: '\e02d';
+        top: 100%;
+        margin-top: -5px;
+      }
+    }
+
+    &:after {
+      content: "\e030";
+      font-family: "Icons";
+      font-size: 13px;
+      height: 10px;
+      color: #000;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      margin-left: -5px;
+    }
+  }
+}

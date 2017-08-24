@@ -1,0 +1,46 @@
+table {
+  margin: $table-margin;
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    border-bottom: $table-thead-border-bottom;
+    margin: $table-thead-margin;
+
+    tr {
+      height: $table-tr-height;
+      line-height: $table-tr-line-height;
+      th {
+        text-align: left;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      height: $table-tr-height;
+      background-color: $table-tr-background-color;
+      padding: $table-tr-padding;
+
+      &:hover {
+        background-color: $table-tr-background-color-hover;
+      }
+
+      td {
+
+      }
+    }
+  }
+
+  &.stripped {
+    tbody {
+      tr:nth-child(2n) {
+        background-color: $table-stripped-tr-background-color;
+        
+        &:hover {
+          background-color: $table-tr-background-color-hover;
+        }
+      }
+    }
+  }
+}

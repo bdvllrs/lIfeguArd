@@ -1,0 +1,15 @@
+$table-margin: 20px 0;
+
+// Thead
+$table-thead-margin: 5px 0;
+$table-thead-border-bottom: 2px solid $grey;
+// Tr
+$table-tr-height: 40px;
+$table-tr-line-height: 40px;
+$table-tr-background-color: transparent;
+$table-tr-background-color-hover: darken($lighter-grey, 1);
+$table-tr-padding: 5px;
+
+// Stripped
+
+$table-stripped-tr-background-color: $lighter-grey;
