@@ -68,7 +68,7 @@ export default class App extends Component {
                     <div className="video-flow">
                         {videoFlow}
                     </div>
-                    <button onClick={this.toggleRecording.bind(this)}>{this.state.recording ? 'Arrêter ' : 'Commencer '}
+                    <button className="btn success" onClick={this.toggleRecording.bind(this)}>{this.state.recording ? 'Arrêter ' : 'Commencer '}
                         l'enregistrement
                     </button>
                 </main>
