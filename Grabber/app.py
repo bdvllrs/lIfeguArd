@@ -2,7 +2,7 @@ from time import sleep
 from Camera import Camera
 import requests
 
-api_url = "http://192.168.0.31:8080/api"
+api_url = "http://localhost:8000/api"
 pictures_memory = 10
 id = int(requests.get(api_url + '/pictures?last=1').json()['id'])
 camera = Camera(id)
