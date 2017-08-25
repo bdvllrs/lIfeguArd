@@ -12,7 +12,6 @@ while True:
     recording = int(settings['recording'])
     if recording:
         with PiCamera() as c:
-            c.resolution = (1920, 1080)
             camera.set_camera(c)
             sleep(2)
             while recording:
