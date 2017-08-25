@@ -1,4 +1,6 @@
 from os import path, listdir, remove
+
+
 class Camera:
     def __init__(self, id=0, camera=None):
         self.camera = camera
@@ -16,7 +18,7 @@ class Camera:
     def clear(self, memory=20):
         # All files in self.folder
         files = listdir(self.folder)
-        files = sorted(files, key=lambda e: e.split('.')[0], reverse=True)
+        files = sorted(files, key=lambda e: int(e.split('.')[0]), reverse=True)
         if memory < 0:
             to_delete = []
         else:
