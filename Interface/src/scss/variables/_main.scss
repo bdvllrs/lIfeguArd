@@ -57,35 +57,10 @@ $grid-row-gap: 20px;
 
 // XS
 $xs-grid-template-columns : 100%;
-$xs-grid-template-rows : $navbar-height auto $footer-height;
+$xs-grid-template-rows : auto $footer-height;
 $xs-grid-template-areas :
-  "#{$navbar-grid-area}"
   "#{$content-grid-area}"
   "#{$footer-grid-area}";
-
-// S
-$s-grid-template-columns : $sidebar-width ;
-$s-grid-template-rows : $navbar-height auto $footer-height;
-$s-grid-template-areas :
-"#{$navbar-grid-area} #{$navbar-grid-area}"
-"#{$sidebar-grid-area} #{$content-grid-area}"
-"#{$footer-grid-area} #{$footer-grid-area}";
-
-// L
-$l-grid-template-columns : $sidebar-width auto $sidebar-width;
-$l-grid-template-rows : $navbar-height auto $footer-height;
-$l-grid-template-areas :
-"#{$navbar-grid-area} #{$navbar-grid-area} #{$navbar-grid-area}"
-"#{$sidebar-grid-area} #{$content-grid-area} #{$content-grid-area}"
-"#{$footer-grid-area} #{$footer-grid-area} #{$footer-grid-area}";
-
-// XL
-$xl-grid-template-columns : $sidebar-width auto $sidebar-width;
-$xl-grid-template-rows : $navbar-height auto $footer-height;
-$xl-grid-template-areas :
-"#{$navbar-grid-area} #{$navbar-grid-area} #{$navbar-grid-area}"
-"#{$sidebar-grid-area} #{$content-grid-area} ."
-"#{$footer-grid-area} #{$footer-grid-area} #{$footer-grid-area}";
 
 @import "sidebar";
 @import "dropdown";

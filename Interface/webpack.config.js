@@ -26,7 +26,7 @@ let config = {
         app: ['./src/index.js', './src/scss/app.scss']
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].2.js',
         path: path.resolve(__dirname, './public/assets'),
         publicPath: "/assets/"
     },
