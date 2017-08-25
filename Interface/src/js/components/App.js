@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {apiUrl, publicUrl} from "../settings";
+import {apiUrl, publicUrl, refreshInterval} from "../settings";
 import axios from 'axios';
 
 const headers = {
@@ -57,7 +57,7 @@ export default class App extends Component {
             const data = response.data
             this.setState({recording: data.recording == true, memory: data.memory, photoInterval: data.photo_interval});
             if (data.recording == true)
-                this.timer = setInterval(this.getFlowUrl.bind(this), this.state.photoInterval * 1000);
+                this.timer = setInterval(this.getFlowUrl.bind(this), refreshInterval);
         });
         axios.get(apiUrl + '/setting/recording').then((response) => {
         });
@@ -68,7 +68,7 @@ export default class App extends Component {
             .then((response) => {
                 this.setState({recording: response.data.content == true});
                 if (response.data.content == true) {
-                    this.timer = setInterval(this.getFlowUrl.bind(this), this.state.photoInterval * 1000);
+                    this.timer = setInterval(this.getFlowUrl.bind(this), refreshInterval);
                 } else {
                     clearInterval(this.timer);
                 }
