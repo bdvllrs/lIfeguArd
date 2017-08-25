@@ -7,9 +7,9 @@ settings = requests.get(api_url + '/settings').json()
 pictures_memory = int(settings['memory'])
 photo_interval = int(settings['photo_interval'])
 camera = Camera(id)
-recording = int(requests.get(api_url + '/setting/recording').json()['content'])
 
 while True:
+    recording = int(requests.get(api_url + '/setting/recording').json()['content'])
     if recording:
         id = int(requests.get(api_url + '/pictures?last=1').json()['id']) + 1
         with Camera(id) as camera:
@@ -22,4 +22,8 @@ while True:
                 camera.clear(pictures_memory)
                 recording = int(requests.get(api_url + '/setting/recording').json()['content'])
                 sleep(photo_interval)
+
+
+
+
 

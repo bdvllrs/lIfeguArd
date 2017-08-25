@@ -98,7 +98,7 @@ export default class App extends Component {
                     <button className={"btn " + (this.state.recording ? "error" : "success")}
                             onClick={this.toggleRecording.bind(this)}>
                         <span className="oi" data-glyph="video"/>
-                        {this.state.recording ? 'Arrêter' : 'Commencer'} l'enregistrement
+                        {this.state.recording ? 'Arrêter' : 'Commencer'} l'observation
                     </button>
                     <div style={{marginTop: 20}}/>
                     <div className="panel dark">
