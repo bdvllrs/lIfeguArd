@@ -82,7 +82,7 @@ let config = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: "css/[name].css",
+            filename: "css/[name].2.css",
             disable: dev,
         })
     ]
