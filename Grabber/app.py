@@ -1,3 +1,4 @@
+from picamera import PiCamera
 from time import sleep
 from Camera import Camera
 import requests
@@ -6,13 +7,14 @@ api_url = "http://192.168.0.31:8080/api"
 settings = requests.get(api_url + '/settings').json()
 pictures_memory = int(settings['memory'])
 photo_interval = int(settings['photo_interval'])
-camera = Camera(id)
+photo_id = int(requests.get(api_url + '/pictures?last=1').json()['id']) + 1
+camera = Camera(photo_id)
 
 while True:
     recording = int(requests.get(api_url + '/setting/recording').json()['content'])
     if recording:
-        id = int(requests.get(api_url + '/pictures?last=1').json()['id']) + 1
-        with Camera(id) as camera:
+        with PiCamera() as c:
+            camera.set_camera(c)
             sleep(2)
             while recording:
                 filename = camera.capture()
