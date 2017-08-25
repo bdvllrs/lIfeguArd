@@ -13,9 +13,18 @@
   color: $black !important;
   text-decoration: none !important;
 
+  &:disabled {
+    cursor: default;
+  }
+
   &:hover {
     border: $button-border-hover;
     box-shadow: $button-box-shadow-hover;
+
+    &:disabled {
+      box-shadow: none;
+      border: $button-border;
+    }
   }
 
   &:active {

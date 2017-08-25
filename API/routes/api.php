@@ -21,4 +21,5 @@ Route::get('/pictures', 'PicturesController@show');
 Route::post('/picture', 'PicturesController@store');
 
 Route::get('/setting/{setting}', 'SettingsController@show');
+Route::get('/settings', 'SettingsController@all');
 Route::post('/setting/{setting}', 'SettingsController@update');

@@ -57,12 +57,11 @@ $grid-row-gap: 20px;
 
 // XS
 $xs-grid-template-columns : 100%;
-$xs-grid-template-rows : $navbar-height auto $footer-height auto;
+$xs-grid-template-rows : $navbar-height auto $footer-height;
 $xs-grid-template-areas :
   "#{$navbar-grid-area}"
   "#{$content-grid-area}"
-  "#{$footer-grid-area}"
-  "#{$sidebar-grid-area}";
+  "#{$footer-grid-area}";
 
 // S
 $s-grid-template-columns : $sidebar-width ;

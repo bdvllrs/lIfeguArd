@@ -1,5 +1,4 @@
 from picamera import PiCamera
-from time import sleep
 from os import path, listdir, remove
 
 

@@ -13,6 +13,11 @@ class SettingsController extends Controller
         return response()->json($setting);
     }
 
+    public function all()
+    {
+        return response()->json(Setting::pluck('content', 'name'));
+    }
+
     public function update(Setting $setting, Request $request)
     {
         $validation = Validator::make($request->all(), [
