@@ -24,6 +24,7 @@ while True:
                 camera.clear(pictures_memory)
                 recording = int(requests.get(api_url + '/setting/recording').json()['content'])
                 sleep(photo_interval)
+    sleep(5)
 
 
 
