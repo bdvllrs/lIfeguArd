@@ -4,12 +4,11 @@ from Camera import Camera
 import requests
 
 api_url = "http://192.168.0.31:8080/api"
-settings = requests.get(api_url + '/settings').json()
 photo_id = int(requests.get(api_url + '/pictures?last=1').json()['id']) + 1
 camera = Camera(photo_id)
 
 while True:
-    recording = int(settings['recording'])
+    recording = int(requests.get(api_url + '/setting/recording').json()['content'])
     if recording:
         with PiCamera() as c:
             camera.set_camera(c)
