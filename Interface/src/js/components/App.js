@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {apiUrl, publicUrl, refreshInterval} from "../settings";
 import axios from 'axios';
+import Message from "./messages/Message";
 
 const headers = {
     headers: {
@@ -16,14 +17,17 @@ export default class App extends Component {
             imgFlow: null,
             recording: false,
             memory: -1,
+            status: 'empty',
+            guarding: false,
             photoInterval: 3,
-            toUpload: false
+            toUpload: false,
         };
 
         this.timer = null;
         this.handleMemoryChange = this.handleMemoryChange.bind(this);
         this.handlePhotoIntervalChange = this.handlePhotoIntervalChange.bind(this);
         this.handleUploadClick = this.handleUploadClick.bind(this);
+        this.handleToggleGuarding = this.handleToggleGuarding.bind(this);
     }
 
     handleMemoryChange(elem) {
@@ -45,22 +49,26 @@ export default class App extends Component {
     }
 
     getFlowUrl() {
-        axios.get(apiUrl + '/pictures?last=1')
-            .then((response) => {
-                this.setState({imgFlow: response.data.path});
+        if(this.state.recording) {
+            axios.get(apiUrl + '/pictures?last=1')
+                .then((response) => {
+                    this.setState({imgFlow: response.data.path});
+                });
+        }
+        axios.get(apiUrl + '/settings').then(r => {
+            this.setState({
+                recording: (r.data.recording == true),
+                status: r.data.status,
+                guarding: (r.data.guarding == true),
+                memory: r.data.memory,
+                photoInterval: r.data.photo_interval
             });
+        });
     }
 
     componentWillMount() {
         this.getFlowUrl();
-        axios.get(apiUrl + '/settings').then(response => {
-            const data = response.data
-            this.setState({recording: data.recording == true, memory: data.memory, photoInterval: data.photo_interval});
-            if (data.recording == true)
-                this.timer = setInterval(this.getFlowUrl.bind(this), refreshInterval);
-        });
-        axios.get(apiUrl + '/setting/recording').then((response) => {
-        });
+        this.timer = setInterval(this.getFlowUrl.bind(this), refreshInterval);
     }
 
     toggleRecording() {
@@ -75,6 +83,15 @@ export default class App extends Component {
             });
     }
 
+    handleToggleGuarding(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        axios.post(apiUrl + '/setting/guarding?content=' + (0 + !this.state.guarding).toString(), {}, headers)
+            .then((r) => {
+                this.setState({guarding: r.data.content == true});
+            });
+    }
+
     componentWillUnmount() {
         clearInterval(this.timer);
     }
@@ -82,12 +99,25 @@ export default class App extends Component {
 
     render() {
         const videoFlow = this.state.imgFlow ?
-            <img src={publicUrl + '/images/pool/' + this.state.imgFlow} width="100%"/> : null;
+            <img src={publicUrl + '/images/pool/' + this.state.imgFlow} style={{display:'block', margin: '0 auto', maxWidth: '1080px', width: '100%'}}/> : null;
+        const alert = this.state.status === 'not_empty' ? (
+            <Message
+                error={!this.state.guarding}
+                warning={this.state.guarding}
+            >
+                Quelqu'un est dans la piscine :
+
+                <button className={"btn" + (this.state.guarding ? ' error' : '')} onClick={(e) => this.handleToggleGuarding(e)}>
+                    {this.state.guarding ? 'Je ne surveille plus' : 'Je surveille'}
+                </button>
+            </Message>
+        ) : null;
         return (
             <div className="container grid-container">
                 <main className="content">
+                    {alert}
                     <div className="panel">
-                        <div className="panel-heading">Flux Vidéo</div>
+                        <div className="panel-heading">Flux</div>
                         <div className="panel-body">
                             {videoFlow}
                         </div>
