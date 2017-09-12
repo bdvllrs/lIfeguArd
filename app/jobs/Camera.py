@@ -18,14 +18,14 @@ class Camera:
     def clear(self, memory=20, interval=10):
         # All files in self.folder
         files = listdir(self.folder)
-        files = sorted(files, key=lambda e: int(e.split('.')[0]), reverse=True)
+        files = sorted(files, key=lambda e: int(e.split('.')[0]))
         if memory < 0:
             to_delete = []
         else:
-            to_delete = files[memory:]
+            to_delete = files[memory*interval:]
         if self.id % interval != 0:
             # We don't save all the photos...
-            to_delete.append(files[-1])
+            to_delete.append(files[0])
         for file in to_delete:
             remove(path.join(self.folder, file))
         return True
