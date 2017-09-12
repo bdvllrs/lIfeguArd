@@ -1,6 +1,6 @@
 import sqlalchemy as sa
 import aiomysql.sa
-import bcrypt
+from hashlib import sha256
 import datetime as dt
 from .models.pictures import get_pictures
 from .models.users import get_users
@@ -22,7 +22,7 @@ async def create_default_user(app):
     """
     username, password = app['_db_config']
     async with app['db'].acquire() as conn:
-        password = bcrypt.hashpw((password + app['config']['security']['salt']).encode(), bcrypt.gensalt()).decode()
+        password = sha256((password + app['config']['security']['salt']).encode()).hexdigest()
         await conn.execute(users.insert().values(username=username, password=password))
         await conn.execute('commit')
 

@@ -1,5 +1,5 @@
 from aiohttp import web
-from bcrypt import checkpw
+from hashlib import sha256
 from basicauth import decode
 from ..db import users as users_model
 
@@ -17,7 +17,7 @@ async def auth_middleware(app, handler):
                     result = await conn.execute(users_model.select().where(users_model.c.username == username))
                     record = await result.first()
                     # If the password is correct...
-                    if checkpw(password.encode(), record.password.encode()):
+                    if sha256(password.encode()).hexdigest() == sha256(record.password.encode()).hexdigest():
                         return await handler(request)
             return web.Response(text='Forbidden', status='403')
         else:

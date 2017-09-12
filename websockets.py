@@ -1,9 +1,7 @@
 from os import path
 import base64
-
+from hashlib import sha256
 from app.db import users, update_settings, settings
-from bcrypt import checkpw
-
 
 def is_connected(app, sid):
     return sid in app['io_users']
@@ -28,7 +26,7 @@ def websockets(app, sio):
             result = await conn.execute(users.select().where(users.c.username == username))
             record = await result.first()
             # If the password is correct...
-            if record is not None and checkpw(password.encode(), record.password.encode()):
+            if record is not None and sha256(password.encode()).hexdigest() == sha256(record.password.encode()).hexdigest():
                 app['io_users'].append(sid)
                 sio.enter_room(sid, 'connected_users')
                 print(sid, 'connected')
