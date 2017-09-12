@@ -1,0 +1,17 @@
+{
+  "app": {
+    "name": "lIfeguArd",
+    "host": "127.0.0.10",
+    "port": 8080
+  },
+  "security": {
+    "salt": "Hs8665sd_èç!:H5s;qsdflj"
+  },
+  "database": {
+    "database": "lifeguard",
+    "user": "root",
+    "password": "root",
+    "host": "127.0.0.1",
+    "port": 3306
+  }
+}
