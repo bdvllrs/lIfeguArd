@@ -1,0 +1,9 @@
+asyncio
+aiohttp
+aiohttp_cors
+aiomysql
+python-socketio
+sqlalchemy
+pymysql
+basicauth
+bcrypt
