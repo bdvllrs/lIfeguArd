@@ -2,9 +2,9 @@ import asyncio
 import base64
 from os import path
 
-from websockets import is_connected
-from ..db import settings, pictures, insert_image
-from .Camera import Camera, PiCamera
+from ..db import settings, insert_image
+from .Camera import Camera
+from picamera import PiCamera
 
 
 async def config_camera(app):
@@ -21,8 +21,8 @@ async def start_camera(app, sio):
     await run_camera(app, sio, camera)
 
 async def run_camera(app, sio, camera):
-    # camera_config = await config_camera(app)
-    camera_config = {'recording': 0}
+    camera_config = await config_camera(app)
+    # camera_config = {'recording': 0}
     if int(camera_config['recording']):
         with PiCamera() as c:
             camera.set_camera(c)

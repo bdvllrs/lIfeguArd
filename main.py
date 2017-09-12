@@ -13,7 +13,6 @@ from websockets import websockets
 sio = socketio.AsyncServer(async_mode='aiohttp')
 app = web.Application()
 sio.attach(app)
-# app['io'] = sio
 app['config'] = import_config(sys.argv)
 app['io_users'] = []
 
@@ -43,5 +42,5 @@ app.on_cleanup.append(close_database)
 setup_api_routes(app)  # Sets the routes
 
 if __name__ == '__main__':
-    web.run_app(app, host="127.0.0.1", port=8080)
+    web.run_app(app, host=app['config']['app']['host'], port=app['config']['app']['port'])
 
