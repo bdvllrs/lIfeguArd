@@ -4,13 +4,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba($light-grey, 0.6);
+  background-color: rgba($darker-grey, 0.6);
   z-index: 100000;
 
   .popup {
     display: block;
     max-width: $popup-width;
-    margin: $navbar-height auto;
+    margin: 5px auto;
 
     background-color: $popup-background-color;
     color: $popup-color;

@@ -52,6 +52,7 @@ export default class App extends Component {
         });
 
         this.socket.on('isRecordingInfo', val => {
+            console.log('isRecordingInfo', val);
             this.setState({isRecording:val});
         });
     }
@@ -64,7 +65,8 @@ export default class App extends Component {
             }}/>) : (
                 <div>
                     <Route exact path="/" render={props => (
-                        <VideoPreview {...props} video={this.state.video} active={this.state.settings.isRecording} onClick={() => {
+                        <VideoPreview {...props} video={this.state.video} active={this.state.isRecording} onToggleStream={() => {
+                            console.log('click!');
                             this.socket.emit('isRecordingUpdated', !this.state.isRecording);
                         }}/>
                     )} />

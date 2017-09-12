@@ -1,7 +1,6 @@
-from os import path
-import base64
 from hashlib import sha256
 from app.db import users, update_settings, settings
+
 
 def is_connected(app, sid):
     return sid in app['io_users']
@@ -34,10 +33,6 @@ def websockets(app, sio):
                 req = await conn.execute(settings.select().where(settings.c.name == 'recording'))
                 res = await req.first()
                 await sio.emit('isRecordingInfo', bool(int(res.content)), room=sid)
-                # image = path.abspath(path.join(path.dirname(__file__), './app/resources/images/1093.jpg'))
-                # with open(image, 'rb') as f:
-                #     await sio.emit('imageTaken', {'image': True, 'buffer': base64.b64encode(f.read()).decode()},
-                #                    room='connected_users')
             else:
                 await sio.emit('loginReply', 'no', room=sid)
 
