@@ -34,18 +34,25 @@ export default class App extends Component {
                 alert('Mot de passe incorrect.');
             }
         });
+
         this.socket.on('settingsNeededReply', (settings) => {
             this.setState({settings})
         });
+
         this.socket.on('settingsUpdatedReply', ({id, content}) => {
            let settings = this.state.settings;
            settings[id] = content;
            this.setState({settings});
         });
+
         this.socket.on('imageTaken', data => {
             let video = this.state.video;
             video.lastImage = 'data:image/jpeg;base64,' + data.buffer;
             this.setState({video});
+        });
+
+        this.socket.on('isRecordingInfo', val => {
+            this.setState({isRecording:val});
         });
     }
 
@@ -57,7 +64,9 @@ export default class App extends Component {
             }}/>) : (
                 <div>
                     <Route exact path="/" render={props => (
-                        <VideoPreview {...props} video={this.state.video}/>
+                        <VideoPreview {...props} video={this.state.video} active={this.state.settings.isRecording} onClick={() => {
+                            this.socket.emit('isRecordingUpdated', !this.state.isRecording);
+                        }}/>
                     )} />
                     <Route path="/settings" render={props => (
                         <Settings {...props} settings={this.state.settings} onChange={(id, content, success, message) => {

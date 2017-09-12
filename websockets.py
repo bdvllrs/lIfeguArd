@@ -26,15 +26,18 @@ def websockets(app, sio):
             result = await conn.execute(users.select().where(users.c.username == username))
             record = await result.first()
             # If the password is correct...
-            if record is not None and sha256(password.encode()).hexdigest() == sha256(record.password.encode()).hexdigest():
+            if record is not None and sha256(password.encode()).hexdigest() == record.password:
                 app['io_users'].append(sid)
                 sio.enter_room(sid, 'connected_users')
                 print(sid, 'connected')
                 await sio.emit('loginReply', 'ok', room=sid)
-                image = path.abspath(path.join(path.dirname(__file__), './app/resources/images/1093.jpg'))
-                with open(image, 'rb') as f:
-                    await sio.emit('imageTaken', {'image': True, 'buffer': base64.b64encode(f.read()).decode()},
-                                   room='connected_users')
+                req = await conn.execute(settings.select().where(settings.c.name == 'recording'))
+                res = await req.first()
+                await sio.emit('isRecordingInfo', bool(int(res.content)), room=sid)
+                # image = path.abspath(path.join(path.dirname(__file__), './app/resources/images/1093.jpg'))
+                # with open(image, 'rb') as f:
+                #     await sio.emit('imageTaken', {'image': True, 'buffer': base64.b64encode(f.read()).decode()},
+                #                    room='connected_users')
             else:
                 await sio.emit('loginReply', 'no', room=sid)
 
@@ -57,3 +60,12 @@ def websockets(app, sio):
         if is_connected(app, sid):
             await update_settings(app, data['id'], data['content'])
             await sio.emit('settingsUpdatedReply', data)
+
+    @sio.on('isRecordingUpdated')
+    async def on_is_recording_updated(sid, data):
+        """
+        When we press the record button
+        """
+        if is_connected(app, sid):
+            await update_settings(app, 'recording', data)
+            await sio.emit('isRecordingInfo', data, room='connected_users')

@@ -17,7 +17,7 @@ async def auth_middleware(app, handler):
                     result = await conn.execute(users_model.select().where(users_model.c.username == username))
                     record = await result.first()
                     # If the password is correct...
-                    if sha256(password.encode()).hexdigest() == sha256(record.password.encode()).hexdigest():
+                    if sha256(password.encode()).hexdigest() == record.password:
                         return await handler(request)
             return web.Response(text='Forbidden', status='403')
         else:
