@@ -19,11 +19,12 @@ class Camera:
         # All files in self.folder
         files = listdir(self.folder)
         files = sorted(files, key=lambda e: int(e.split('.')[0]), reverse=True)
+        print(files)
         if memory < 0:
             to_delete = []
         else:
-            print('delete', memory*interval, ':', memory, interval)
             to_delete = files[memory*interval:]
+            print('delete', to_delete)
         if self.id % interval != 0:
             # We don't save all the photos...
             to_delete.append(files[0])
