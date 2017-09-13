@@ -35,6 +35,9 @@ class Camera:
     def set_camera(self, c):
         self.camera = c
 
+    def unset_camera(self):
+        self.camera = None
+
 
 class PiCamera:
     """

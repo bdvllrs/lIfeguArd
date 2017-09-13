@@ -19,22 +19,22 @@ def websockets(app, sio):
         """
             Check if the login / password is correct
             """
-        username, password = data['username'], data['password']
-        password += app['config']['security']['salt']
+        # username, password = data['username'], data['password']
+        # password += app['config']['security']['salt']
         async with app['db'].acquire() as conn:
-            result = await conn.execute(users.select().where(users.c.username == username))
-            record = await result.first()
-            # If the password is correct...
-            if record is not None and sha256(password.encode()).hexdigest() == record.password:
-                app['io_users'].append(sid)
-                sio.enter_room(sid, 'connected_users')
-                print(sid, 'connected')
-                await sio.emit('loginReply', 'ok', room=sid)
-                req = await conn.execute(settings.select().where(settings.c.name == 'recording'))
-                res = await req.first()
-                await sio.emit('isRecordingInfo', bool(int(res.content)), room=sid)
-            else:
-                await sio.emit('loginReply', 'no', room=sid)
+            # result = await conn.execute(users.select().where(users.c.username == username))
+            # record = await result.first()
+            # # If the password is correct...
+            # if record is not None and sha256(password.encode()).hexdigest() == record.password:
+            app['io_users'].append(sid)
+            sio.enter_room(sid, 'connected_users')
+            print(sid, 'connected')
+            await sio.emit('loginReply', 'ok', room=sid)
+            req = await conn.execute(settings.select().where(settings.c.name == 'recording'))
+            res = await req.first()
+            await sio.emit('isRecordingInfo', bool(int(res.content)), room=sid)
+            # else:
+            #     await sio.emit('loginReply', 'no', room=sid)
 
     @sio.on('settingsNeeded')
     async def on_settings_needed(sid):

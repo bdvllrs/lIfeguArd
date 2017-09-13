@@ -37,6 +37,7 @@ async def run_camera(app, sio, camera):
             # We add the file to the API
             # We clear the folder
             camera.clear(int(camera_config['memory']), int(camera_config['photo_interval']))
+            camera.unset_camera()
         await asyncio.sleep(0.5)
         await run_camera(app, sio, camera)
     await asyncio.sleep(2)
